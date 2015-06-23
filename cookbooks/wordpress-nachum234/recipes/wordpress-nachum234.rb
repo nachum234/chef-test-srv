@@ -1,4 +1,5 @@
 include_recipe 'apache2::default'
+include_recipe 'git'
 
 web_app node['wordpress-nachum234']['name'] do
   template "#{node['wordpress-nachum234']['config']}.erb"

@@ -74,4 +74,14 @@ if is_local_host? db['host']
     action        :grant
   end
 
+  file 'chef-dont_remove-nachum234-sql.flag' do
+    action  :create_if_missing
+    notifies    :run, 'execute[restoredb]', :immediately
+  end
+
+  execute 'restoredb' do
+    command     "mysql -u#{db['user']} -p#{db['pass']} #{db['name']} < /vagrant/nachum234.sql"
+    action      :nothing
+  end
+
 end
