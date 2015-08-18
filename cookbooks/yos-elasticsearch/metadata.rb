@@ -8,3 +8,5 @@ version          '0.1.0'
 
 depends 'java'
 depends 'elasticsearch'
+depends 'kibana_lwrp'
+depends 'redisio'
